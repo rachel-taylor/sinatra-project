@@ -14,7 +14,7 @@ gem 'rspec'
 gem 'bootstrap'
 
 group :test, :development do 
-  gem 'pry'
   gem 'byebug'
+  gem 'pry'
   gem 'robocop'
 end
