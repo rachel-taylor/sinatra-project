@@ -11,7 +11,7 @@ gem 'shotgun'
 gem 'bcrypt'
 gem 'tux'
 gem 'rspec'
-gem 'bootstrap'
+gem "bootstrap", ">= 4.3.1"
 
 group :test, :development do 
   gem 'byebug'
