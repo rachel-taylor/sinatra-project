@@ -1,0 +1,14 @@
+<h3>Edit your Appointment</h3>
+<form action="/appointment/<%= @appointment.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <input type="text" name="grade" value="<%= @appointment.grade %>" placeholder="Grade:">
+  <input type="text" name="subject" value="<%= @appointment.subject %>" placeholder="Subject:">
+  <br>
+  <input type="text" name="content" value="<%= @appointment.content %>"> 
+  <br>
+<!-- <input type="text" size="150%" name="Appointment" placeholder="Appointment:"> -->
+<textarea name="content" id="content" value="<%= @appointment.content %>" placeholder="Content:" style="width:50%;height:300px;font:18px sans-serif"></textarea>
+  <br>
+  <input type="submit" value="edit">
+</form>
+<a href="/profile">Profile</a>

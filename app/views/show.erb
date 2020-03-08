@@ -1,0 +1,25 @@
+<h1>Appointment created</h1>
+
+
+<h2>Appointment num: <%= @Appointment.id %></h2>
+
+<h2>grade: <%= @Appointment.grade %></h2>
+
+<h5>Description: <%= @Appointment.description %></h5>
+
+<h3>subject: <%= @Appointment.subject %></h3> 
+
+<form method="post" action="/Appointments/<%= @Appointment.id %>">
+
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+
+<input type="submit" value="delete"> 
+</form>
+
+<a href="/Appointments/<%= @Appointment.id %>/edit">Change Appointment</a>
+
+<br>
+<a href="/profile">Profile</a>
+<br>
+
+<a href="/">Home</a>
