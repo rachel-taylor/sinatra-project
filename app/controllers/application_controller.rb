@@ -23,8 +23,8 @@ helpers do
       end
   end
 
-  def appointments
-    User.find(session[:User_id])
-  end
+  # def appointments
+  #   User.find(session[:user_id])
+  # end
 end    
 end 

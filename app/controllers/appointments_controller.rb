@@ -2,19 +2,21 @@ class AppointmentsController < ApplicationController
     get '/appointments' do 
         redirect_if_not_logged_in
         @appointments = Appointment.all
-        erb :"/appointments/index"
+        erb :'/appointments/index'
     end 
     
     get '/appointments/new' do
         redirect_if_not_logged_in
-        erb :"/appointments/new"
+        erb :'/appointments/new'
     end
 
     post '/appointments' do
+      # binding.pry
         redirect_if_not_logged_in
-        @appointment = user.appointments.build(appointment_params)
-        @appointment.user = User.find(session[:user_id])
+        @appointment = Appointment.new(appointment_params)
+        # @appointment.user_id = User.find(session[:user_id])
         if @appointment.save
+          binding.pry
         erb :show
         else 
           appointment_params.nil? || appointment_params.empty?
@@ -69,6 +71,6 @@ class AppointmentsController < ApplicationController
       private
 
       def appointment_params
-        { appointment: params[:appointment], grade: params[:grade], user: params[:user]}
+        { user_id: session[:user_id], grade: params[:grade], time: params[:time], subject: params[:subject], content: params[:content]}
       end
 end
