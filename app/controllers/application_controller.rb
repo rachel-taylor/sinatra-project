@@ -8,13 +8,14 @@ class ApplicationController < Sinatra::Base
   get '/' do 
       erb :index
   end 
+
   get '/failure' do
       erb :failure 
   end 
   
 helpers do
   def logged_in?
-    !!session[:User_id]
+    !!session[:user_id]
   end
   def redirect_if_not_logged_in
       unless logged_in?
