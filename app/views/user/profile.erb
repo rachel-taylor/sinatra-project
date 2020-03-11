@@ -1,0 +1,17 @@
+  
+<h2>Greetings <%=@user.username.upcase %></h2>
+
+<h1>Everything For Kids Academic Tutoring</h1>
+
+<h5>Keep track of Appointments here</h5>
+
+<% @user.appointments.each.with_index(1) do |appointment, index| %>
+    
+ <%="#{index})"%>  <a href="/appointment/<%=appointment.id %>"><%=appointment.title %></a>
+ <br>  
+ 
+ <% end %>
+ 
+ <p><a href="/appointment/new">Create Appointment</a></p>
+ 
+<a href="/signout">Sign Out</a>
