@@ -1,3 +1,9 @@
-appointments.each do |t|
-    
-end 
+<% @appointments.each do |t| %>
+    <ol>
+    <li><a href="/appointments/<%=@appointment.id%>"><%=@appointment.time%></a></li>
+    </ol>
+<% end %>
+
+
+
+  
