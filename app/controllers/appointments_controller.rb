@@ -11,13 +11,12 @@ class AppointmentsController < ApplicationController
     end
 
     post '/appointments' do
-      # binding.pry
         redirect_if_not_logged_in
         @appointment = Appointment.new(appointment_params)
-        # @appointment.user_id = User.find(session[:user_id])
+        # binding.pry
+        @appointment.user_id = User.find(session[:user_id])
         if @appointment.save
-          binding.pry
-        erb :show
+        erb :'/appointments/show'
         else 
           appointment_params.nil? || appointment_params.empty?
           @errors = ["Please enter the correct information"]
@@ -49,6 +48,8 @@ class AppointmentsController < ApplicationController
         @appointment = user.appointments.find_by(id: params[:id])
         @appointment.user = params[:user]
         @appointment.grade = params[:grade]
+        @appointment.subject = params[:subject]
+        @appointment.content = params[:content]
         @appointment.save
         erb :show
     end
