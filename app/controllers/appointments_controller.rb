@@ -14,7 +14,7 @@ class AppointmentsController < ApplicationController
         redirect_if_not_logged_in
         @appointment = Appointment.new(appointment_params)
         # binding.pry
-        @appointment.user_id = User.find(session[:user_id])
+        #@appointment.user_id = User.find(session[:user_id])
         if @appointment.save
         erb :'/appointments/show'
         else 
