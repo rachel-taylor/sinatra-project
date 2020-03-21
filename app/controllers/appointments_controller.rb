@@ -16,7 +16,7 @@ class AppointmentsController < ApplicationController
         # binding.pry
         #@appointment.user_id = User.find(session[:user_id])
         if @appointment.save
-        erb :'/appointments/show'
+        redirect "/appointments/#{@appointment.id}"
         else 
           appointment_params.nil? || appointment_params.empty?
           @errors = ["Please enter the correct information"]
@@ -25,7 +25,7 @@ class AppointmentsController < ApplicationController
     end
 
     get '/appointments/:id' do
-      @appointment = appointment.find(params[:id])
+      @appointment = Appointment.find(params[:id])
       erb :show
     end
 
@@ -72,6 +72,6 @@ class AppointmentsController < ApplicationController
       private
 
       def appointment_params
-        { user_id: session[:user_id], grade: params[:grade], time: params[:time], subject: params[:subject], content: params[:content]}
+        { user_id: session[:user_id], grade: params[:grade], appointment_time: params[:appointment_time], subject: params[:subject], content: params[:content]}
       end
 end
