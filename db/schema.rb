@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20200310015543) do
 
   create_table "appointments", force: :cascade do |t|
-    t.datetime "time"
+    t.datetime "appointment_time"
     t.integer  "user_id"
     t.integer  "grade"
     t.string   "subject"
