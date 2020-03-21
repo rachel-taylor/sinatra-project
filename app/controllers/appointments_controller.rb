@@ -26,18 +26,14 @@ class AppointmentsController < ApplicationController
 
     get '/appointments/:id' do
       @appointment = Appointment.find(params[:id])
-      erb :show
+      erb :'/appointments/show'
     end
 
     get '/appointments/:id/edit' do
       redirect_if_not_logged_in 
-       if user
-      @appointment = user.appointments.find_by(id: params[:id])
+      @appointment = current_user.appointments.find_by(id: params[:id])
       if @appointment
         erb :edit
-       else 
-        redirect '/'
-       end
       else 
       redirect '/'
        end
@@ -45,25 +41,24 @@ class AppointmentsController < ApplicationController
     
       patch '/appointments/:id' do
         redirect_if_not_logged_in  
-        @appointment = user.appointments.find_by(id: params[:id])
+        if @appointment = current_user.appointments.find_by(id: params[:id])
         @appointment.user = params[:user]
         @appointment.grade = params[:grade]
         @appointment.subject = params[:subject]
         @appointment.content = params[:content]
         @appointment.save
         erb :show
+        else redirect '/'
+        end 
     end
 
       delete '/appointments/:id' do
         redirect_if_not_logged_in 
-       if user
-         @appointment = user.appointments.find_by(id: params[:id])
+       if
+         @appointment = current_user.appointments.find_by(id: params[:id])
         if @appointment
           @appointment.delete
           redirect '/profile'
-       else 
-        redirect '/'
-       end
       else redirect '/'
        end
 
@@ -75,3 +70,4 @@ class AppointmentsController < ApplicationController
         { user_id: session[:user_id], grade: params[:grade], appointment_time: params[:appointment_time], subject: params[:subject], content: params[:content]}
       end
 end
+end 
