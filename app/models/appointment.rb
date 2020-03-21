@@ -1,5 +1,5 @@
 class Appointment < ActiveRecord::Base 
-    validates :time, :user, presence: true
+    validates :appointment_time, :user, presence: true
     belongs_to :user
 end 
 
