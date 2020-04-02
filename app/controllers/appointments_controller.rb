@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
         erb :'/appointments/new'
     end
 
-    post '/appointments' do
+         post '/appointments' do
         redirect_if_not_logged_in
         # binding.pry
         @appointment = Appointment.new(appointment_params)
