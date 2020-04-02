@@ -8,14 +8,14 @@
 
 <h3>subject: <%= @appointment.subject %></h3> 
 
-<form method="post" action="/Appointments/<%= @appointment.id %>">
+<form method="post" action="/appointments/<%= @appointment.id %>">
 
 <input id="hidden" type="hidden" name="_method" value="DELETE">
 
 <input type="submit" value="delete"> 
 </form>
 
-<a href="/Appointments/<%= @appointment.id %>/edit">Change Appointment</a>
+<a href="/appointments/<%= @appointment.id %>/edit">Change Appointment</a>
 
 <br>
 <a href="/profile">Profile</a>

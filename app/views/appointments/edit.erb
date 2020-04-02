@@ -1,5 +1,5 @@
 <h3>Edit your Appointment</h3>
-<form action="/appointment/<%= @appointment.id %>" method="POST">
+<form action="/appointments/<%= @appointment.id %>" method="POST">
   <input type="hidden" name="_method" value="patch">
   <input type="text" name="grade" value="<%= @appointment.grade %>" placeholder="Grade:">
   <input type="text" name="subject" value="<%= @appointment.subject %>" placeholder="Subject:">
