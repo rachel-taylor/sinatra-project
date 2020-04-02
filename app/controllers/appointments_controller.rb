@@ -12,9 +12,8 @@ class AppointmentsController < ApplicationController
 
     post '/appointments' do
         redirect_if_not_logged_in
-        @appointment = Appointment.new(appointment_params)
         # binding.pry
-        #@appointment.user_id = User.find(session[:user_id])
+        @appointment = Appointment.new(appointment_params)
         if @appointment.save
         redirect "/appointments/#{@appointment.id}"
         else 
@@ -33,7 +32,7 @@ class AppointmentsController < ApplicationController
       redirect_if_not_logged_in 
       @appointment = current_user.appointments.find_by(id: params[:id])
       if @appointment
-        erb :edit
+        erb :'/appointments/edit'
       else 
       redirect '/'
        end
@@ -47,27 +46,14 @@ class AppointmentsController < ApplicationController
         @appointment.subject = params[:subject]
         @appointment.content = params[:content]
         @appointment.save
-        erb :show
+        erb :'/appointments/show'
         else redirect '/'
         end 
     end
-
-      delete '/appointments/:id' do
-        redirect_if_not_logged_in 
-       if
-         @appointment = current_user.appointments.find_by(id: params[:id])
-        if @appointment
-          @appointment.delete
-          redirect '/profile'
-      else redirect '/'
-       end
-
-      end	
       
       private
 
       def appointment_params
         { user_id: session[:user_id], grade: params[:grade], appointment_time: params[:appointment_time], subject: params[:subject], content: params[:content]}
       end
-end
 end 
