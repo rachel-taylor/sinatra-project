@@ -1,12 +1,12 @@
 <h1>Appointment created</h1>
 
-<h2>Appointment num: <%= @appointment.id %></h2>
 
-<h2>grade: <%= @appointment.grade %></h2>
 
-<h5>Content: <%= @appointment.content %></h5>
+<h3>Grade: <%= @appointment.grade %></h3>
 
-<h3>subject: <%= @appointment.subject %></h3> 
+<h3>Content: <%= @appointment.content %></h3>
+
+<h3>Subject: <%= @appointment.subject %></h3> 
 
 <form method="post" action="/appointments/<%= @appointment.id %>">
 
