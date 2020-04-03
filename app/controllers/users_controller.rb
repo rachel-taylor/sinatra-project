@@ -37,6 +37,12 @@ class UsersController < ApplicationController
         end
     end 
 
+    get '/profile' do 
+      @user = User.find(session[:user_id]) 
+      binding.pry 
+      erb :"/user/profile"
+    end 
+
     get '/signout' do 
         redirect_if_not_logged_in
         session.clear 

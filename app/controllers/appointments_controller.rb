@@ -50,6 +50,13 @@ class AppointmentsController < ApplicationController
         else redirect '/'
         end 
     end
+
+    delete '/appointments/:id/' do
+      @appointment = Appointments.find_by(params[:id])
+      @appointment.delete
+      redirect '/profile'
+    end
+
       
       private
 
