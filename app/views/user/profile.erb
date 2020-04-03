@@ -7,11 +7,6 @@
 
 <% @user.appointments.each.with_index(1) do |appointment, index| %>
     
- <%="#{index})"%>  <a href="/appointments/<%=appointment.id %>"><%=appointment.title %></a>
- <br>  
- 
- <% end %>
- 
  <p><a href="/appointments/new">Create Appointment</a></p>
  
 <a href="/signout">Sign Out</a>

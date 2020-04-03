@@ -11,8 +11,7 @@
 <form method="post" action="/appointments/<%= @appointment.id %>">
 
 <input id="hidden" type="hidden" name="_method" value="DELETE">
-
-<input type="submit" value="delete"> 
+<input type="submit" value="Delete"> 
 </form>
 
 <a href="/appointments/<%= @appointment.id %>/edit">Change Appointment</a>
@@ -20,5 +19,3 @@
 <br>
 <a href="/profile">Profile</a>
 <br>
-
-<a href="/">Home</a>
