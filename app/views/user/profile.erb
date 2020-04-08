@@ -3,10 +3,10 @@
 
 <h1>Everything For Kids Academic Tutoring</h1>
 
-<h5>Keep track of Appointments here</h5>
+<h5>Your Next Appointment is:</h5>
 
-<% @user.appointments.each.with_index(1) do |appointment, index| %>
-    
+<%= @user.appointments.first %>
+
  <p><a href="/appointments/new">Create Appointment</a></p>
  
 <a href="/signout">Sign Out</a>

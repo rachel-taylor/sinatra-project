@@ -8,9 +8,8 @@
 
 <h3>Subject: <%= @appointment.subject %></h3> 
 
-<form method="post" action="/appointments/<%= @appointment.id %>">
-
-<input id="hidden" type="hidden" name="_method" value="DELETE">
+<form action='/appointments/<%= @appointment.id %>' method="post">
+<input id="hidden" type="hidden" name="_method" value="delete">
 <input type="submit" value="Delete"> 
 </form>
 
