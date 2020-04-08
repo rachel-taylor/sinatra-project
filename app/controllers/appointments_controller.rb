@@ -14,6 +14,7 @@ class AppointmentsController < ApplicationController
         redirect_if_not_logged_in
         # binding.pry
         @appointment = Appointment.new(appointment_params)
+        # binding.pry
         if @appointment.save
         redirect "/appointments/#{@appointment.id}"
         else 
@@ -41,7 +42,7 @@ class AppointmentsController < ApplicationController
       patch '/appointments/:id' do
         redirect_if_not_logged_in  
         if @appointment = current_user.appointments.find_by(id: params[:id])
-        @appointment.user = params[:user]
+        # @appointment.user = params[:user]
         @appointment.grade = params[:grade]
         @appointment.subject = params[:subject]
         @appointment.content = params[:content]
@@ -51,8 +52,8 @@ class AppointmentsController < ApplicationController
         end 
     end
 
-    delete '/appointments/:id/' do
-      @appointment = Appointments.find_by(params[:id])
+    delete '/appointments/:id' do
+      @appointment = Appointment.find_by(params[:id])
       @appointment.delete
       redirect '/profile'
     end
