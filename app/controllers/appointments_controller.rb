@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
     get '/appointments' do 
         redirect_if_not_logged_in
-        @appointments = Appointment.all
+        @appointments = current_user.appointments
         erb :'/appointments/index'
     end 
     
@@ -10,15 +10,12 @@ class AppointmentsController < ApplicationController
         erb :'/appointments/new'
     end
 
-         post '/appointments' do
-        redirect_if_not_logged_in
-        # binding.pry
-        @appointment = Appointment.new(appointment_params)
-        # binding.pry
+    post '/appointments' do
+      redirect_if_not_logged_in
+        @appointment = current_user.appointments.build(params)
         if @appointment.save
         redirect "/appointments/#{@appointment.id}"
         else 
-          appointment_params.nil? || appointment_params.empty?
           @errors = ["Please enter the correct information"]
           erb :failure
          end
@@ -53,7 +50,7 @@ class AppointmentsController < ApplicationController
     end
 
     delete '/appointments/:id' do
-      @appointment = Appointment.find_by(params[:id])
+      @appointment = Appointment.find(params[:id])
       @appointment.delete
       redirect '/profile'
     end
