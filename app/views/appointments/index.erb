@@ -1,6 +1,6 @@
 <% @appointments.each do |t| %>
     <ol>
-    <li><a href="/appointments/<%=@appointment.id%>"><%=@appointment.appointment_time%></a></li>
+    <li><a href="/appointments/<%=t.id%>"><%=t.appointment_time%><%=t.subject%></a></li>
     </ol>
 <% end %>
 

@@ -1,7 +1,7 @@
 <h3>Create Appointment</h3>
 <form action="/appointments" method="POST">
 <label>Time:</label>
-  <input type="datetime-local" id="appointment_time" name="appointment_time">
+  <input type="datetime-local" min=<%=Time.now%> id="appointment_time" name="appointment_time">
   <br/>
   <input type="text" name="grade" placeholder="Grade:">
   <input type="text" name="subject" placeholder="Subject:">
