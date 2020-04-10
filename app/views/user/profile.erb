@@ -1,12 +1,13 @@
   
-<h2>Greetings <%=@user.username.upcase %></h2>
+<h2>Greetings <%=@user.username.capitalize %></h2>
 
 <h1>Everything For Kids Academic Tutoring</h1>
 
 <h5>Your Next Appointment is:</h5>
 
-<%= @user.appointments.first %>
+<%= @user.appointments %>
 
  <p><a href="/appointments/new">Create Appointment</a></p>
+ <p><a href="/appointments">See All Appointments</a></p>
  
 <a href="/signout">Sign Out</a>
